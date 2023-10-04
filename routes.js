@@ -19,7 +19,7 @@ const requestHandler = (req,res) => {
     });
     req.on("end", () => {
       const parseBody = Buffer.concat(body).toString();
-      const message = parseBody.split("=")[1];
+      const message = parseBody.split("=")[0];
       fs.writeFileSync("message.txt", message);
     });
 
@@ -50,6 +50,7 @@ const requestHandler = (req,res) => {
   res.write(
     "<html><head><title>My First Page</title></head> <body><h1>Welcome to my First Node Js Server</h1></body></html>"
   );
+
   return res.end();
 };
 
