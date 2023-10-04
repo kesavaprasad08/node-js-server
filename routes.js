@@ -19,7 +19,7 @@ const requestHandler = (req,res) => {
     });
     req.on("end", () => {
       const parseBody = Buffer.concat(body).toString();
-      const message = parseBody.split("=")[0];
+      const message = parseBody.split("=")[1];
       fs.writeFileSync("message.txt", message);
     });
 
