@@ -4,11 +4,11 @@ const express = require('express');
 
 const rootDir = require('../util/path');
 
+const productsController = require('../controllers/products');
+
 
 const router = express.Router();
-
-router.get('/contactus',(req, res, next) => {
-    res.sendFile(path.join(rootDir,'views','contactus.html'));
-  });
+ 
+router.get('/contactus',productsController.getContactUs);
 
   module.exports = router;
